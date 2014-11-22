@@ -10,7 +10,7 @@
 	"keywords": ["crudr", "aggregate", "cli", "json"],
 	"repository": {
 	"type": "git",
-		"url": "git://github.com/crudr/cli.git"
+		"url": "git://github.com/crudr-tools/cli.git"
 	},
 	"engines": { "node": ">=0.8.x" },
 	"main": "index",
