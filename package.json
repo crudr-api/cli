@@ -1,0 +1,25 @@
+{
+	"name": "crudr-cli",
+	"description": "Command-line interface for CRUDr",
+	"version": "0.0.1",
+	"author": "kdi",
+	"contributors": [
+		{ "name": "Makis Tracend", "email": "makis@kdi.co" }
+	],
+	"homepage": "http://crudr.com",
+	"keywords": ["crudr", "aggregate", "cli", "json"],
+	"repository": {
+	"type": "git",
+		"url": "git://github.com/crudr/cli.git"
+	},
+	"engines": { "node": ">=0.8.x" },
+	"main": "index",
+	"bin": {
+		"crudr": "bin/crudr"
+	},
+	"dependencies": {
+		"commander": "2.1.0",
+		"crudr-api": "*",
+		"prompt": "0.2.12"
+	}
+}
