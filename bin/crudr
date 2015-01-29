@@ -4,14 +4,19 @@
  * Module dependencies.
  */
 
-var program = require('commander')
-	main = require("../lib/main");
+var program = require('commander'),
+	main = require('../lib/main'),
+	path = require('path'),
+	fs = require('fs');
 
 var exec;
+// package info
+var package = JSON.parse( fs.readFileSync( path.resolve( __dirname, '../package.json'), 'utf-8') ); // condition the existance of package.json?
 
 program
-	.version('0.2.0')
+	.version( package.version )
 	.option('-c, --config <path>', 'Set config path. Defaults to ~/.crudr')
+	.option('-r, --reset', 'Reset token saved');
 
 /* Setup */
 program
@@ -21,7 +26,7 @@ program
 		process.nextTick(function(){
 			exec.setup(options )
 		});
-	})
+	});
 
 /* User */
 program
@@ -32,7 +37,7 @@ program
 		process.nextTick(function(){
 			exec.user( id, options )
 		});
-	})
+	});
 
 /* Product */
 program
