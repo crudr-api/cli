@@ -4,7 +4,7 @@
 # 1. Install the main executable
 npm install -g crudr-cli
 
-#2. Setup onscribe (only needed once)
+#2. Setup crudr (only needed once)
 crudr setup
 
 # you'll be propted with two entries
