@@ -32,16 +32,26 @@ program
 program
 	.command('user [id]')
 	.description('Read user info')
+	.option("-a, --apps", "List all apps for user")
+	.option("-s, --stores", "List all stores for user")
 	.action(function(id, options){
 		id = id || false;
 		process.nextTick(function(){
 			exec.user( id, options )
 		});
+	})
+	.on('--help', function() {
+		console.log('  Examples:');
+		console.log();
+		console.log('    $ user {{id}}');
+		console.log('    $ user {{id}} -a');
+		console.log('    $ user {{id}} -s');
+		console.log();
 	});
 
-/* Product */
+/* App */
 program
-	.command('product [id]')
+	.command('app [id]')
 	.description('Read product details')
 	.option("-a, --all", "List all products for user")
 	.action(function(id, options){
@@ -53,14 +63,14 @@ program
 	.on('--help', function() {
 		console.log('  Examples:');
 		console.log();
-		console.log('    $ product {{id}}');
-		console.log('    $ product --all');
+		console.log('    $ app {{id}}');
+		console.log('    $ app --all');
 		console.log();
-});
+	});
 
-/* Subscriptions */
+/* Store */
 program
-	.command('sub [id]')
+	.command('store [id]')
 	.description('Read subscriber info, optionally from product')
 	.option("-a, --all", "Read all subscribers")
 	.option("-i, --item <number>", "Output a single item by its id")
@@ -77,8 +87,8 @@ program
 	.on('--help', function() {
 		console.log('  Examples:');
 		console.log();
-		console.log('    $ sub -i {{id}}');
-		console.log('    $ sub {{user}} --all');
+		console.log('    $ store -i {{id}}');
+		console.log('    $ store {{user}} --all');
 		console.log();
 });
 
